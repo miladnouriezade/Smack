@@ -12,6 +12,7 @@
 		6445BDC721301FA900FC1A5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6445BDC521301FA900FC1A5B /* Main.storyboard */; };
 		6445BDC921301FAA00FC1A5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6445BDC821301FAA00FC1A5B /* Assets.xcassets */; };
 		6445BDCC21301FAA00FC1A5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6445BDCA21301FAA00FC1A5B /* LaunchScreen.storyboard */; };
+		6445BDD7213022EA00FC1A5B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6445BDD5213022E900FC1A5B /* SWRevealViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		6445BDC821301FAA00FC1A5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6445BDCB21301FAA00FC1A5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6445BDCD21301FAA00FC1A5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6445BDD4213022E900FC1A5B /* Smack-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Smack-Bridging-Header.h"; sourceTree = "<group>"; };
+		6445BDD5213022E900FC1A5B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		6445BDD6213022E900FC1A5B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 		6445BDC021301FA900FC1A5B /* Smack */ = {
 			isa = PBXGroup;
 			children = (
+				6445BDD3213022AE00FC1A5B /* Supporting Files */,
 				6445BDC121301FA900FC1A5B /* AppDelegate.swift */,
 				6445BDC321301FA900FC1A5B /* ViewController.swift */,
 				6445BDC521301FA900FC1A5B /* Main.storyboard */,
@@ -62,6 +67,16 @@
 				6445BDCD21301FAA00FC1A5B /* Info.plist */,
 			);
 			path = Smack;
+			sourceTree = "<group>";
+		};
+		6445BDD3213022AE00FC1A5B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6445BDD6213022E900FC1A5B /* SWRevealViewController.h */,
+				6445BDD5213022E900FC1A5B /* SWRevealViewController.m */,
+				6445BDD4213022E900FC1A5B /* Smack-Bridging-Header.h */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +111,7 @@
 				TargetAttributes = {
 					6445BDBD21301FA900FC1A5B = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -137,6 +153,7 @@
 			files = (
 				6445BDC421301FA900FC1A5B /* ViewController.swift in Sources */,
 				6445BDC221301FA900FC1A5B /* AppDelegate.swift in Sources */,
+				6445BDD7213022EA00FC1A5B /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +297,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AHT9LMN52G;
 				INFOPLIST_FILE = Smack/Info.plist;
@@ -289,6 +307,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Milad-Nourizade.Smack";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Smack/Supporting Files/Smack-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -298,6 +318,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AHT9LMN52G;
 				INFOPLIST_FILE = Smack/Info.plist;
@@ -307,6 +328,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Milad-Nourizade.Smack";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Smack/Supporting Files/Smack-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
