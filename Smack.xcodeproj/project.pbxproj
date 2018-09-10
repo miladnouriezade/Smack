@@ -12,6 +12,8 @@
 		6445BDC921301FAA00FC1A5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6445BDC821301FAA00FC1A5B /* Assets.xcassets */; };
 		6445BDCC21301FAA00FC1A5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6445BDCA21301FAA00FC1A5B /* LaunchScreen.storyboard */; };
 		6445BDD7213022EA00FC1A5B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6445BDD5213022E900FC1A5B /* SWRevealViewController.m */; };
+		64A44AC42146537D00292600 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A44AC32146537D00292600 /* Constants.swift */; };
+		64A44AC621465FEC00292600 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A44AC521465FEC00292600 /* LoginVC.swift */; };
 		64E37C112135D3D600E33EEC /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E37C102135D3D600E33EEC /* GradientView.swift */; };
 		64FD7FDF2131DBF90091710C /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FD7FDE2131DBF90091710C /* ChatVC.swift */; };
 		64FD7FE12131DC330091710C /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FD7FE02131DC330091710C /* ChannelVC.swift */; };
@@ -27,6 +29,8 @@
 		6445BDD4213022E900FC1A5B /* Smack-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Smack-Bridging-Header.h"; sourceTree = "<group>"; };
 		6445BDD5213022E900FC1A5B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		6445BDD6213022E900FC1A5B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		64A44AC32146537D00292600 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		64A44AC521465FEC00292600 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		64E37C102135D3D600E33EEC /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		64FD7FDE2131DBF90091710C /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		64FD7FE02131DC330091710C /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
@@ -62,6 +66,7 @@
 		6445BDC021301FA900FC1A5B /* Smack */ = {
 			isa = PBXGroup;
 			children = (
+				64A44AC22146531200292600 /* Utillites */,
 				64FD7FDD2131DBC80091710C /* Model */,
 				64FD7FDC2131DBB80091710C /* View */,
 				64FD7FDB2131DBA60091710C /* Controller */,
@@ -85,11 +90,20 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		64A44AC22146531200292600 /* Utillites */ = {
+			isa = PBXGroup;
+			children = (
+				64A44AC32146537D00292600 /* Constants.swift */,
+			);
+			path = Utillites;
+			sourceTree = "<group>";
+		};
 		64FD7FDB2131DBA60091710C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				64FD7FE02131DC330091710C /* ChannelVC.swift */,
 				64FD7FDE2131DBF90091710C /* ChatVC.swift */,
+				64A44AC521465FEC00292600 /* LoginVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -183,9 +197,11 @@
 			files = (
 				64FD7FDF2131DBF90091710C /* ChatVC.swift in Sources */,
 				6445BDC221301FA900FC1A5B /* AppDelegate.swift in Sources */,
+				64A44AC621465FEC00292600 /* LoginVC.swift in Sources */,
 				64E37C112135D3D600E33EEC /* GradientView.swift in Sources */,
 				6445BDD7213022EA00FC1A5B /* SWRevealViewController.m in Sources */,
 				64FD7FE12131DC330091710C /* ChannelVC.swift in Sources */,
+				64A44AC42146537D00292600 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
