@@ -346,6 +346,9 @@
                                 <state key="normal" title="Create my Account">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="createAccount:" destination="anH-6M-LpD" eventType="touchUpInside" id="cRA-Ra-rWB"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="9uF-fF-8nn">
                                 <rect key="frame" x="137.5" y="50" width="100" height="100"/>
@@ -363,6 +366,9 @@
                                 <state key="normal" title="Choose an Avatar">
                                     <color key="titleColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="chooseAvatar:" destination="anH-6M-LpD" eventType="touchUpInside" id="K6B-f6-i01"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -383,6 +389,10 @@
                     </view>
                     <connections>
                         <outlet property="createAccountBtn" destination="jSJ-Y6-vmL" id="ygx-ut-ihY"/>
+                        <outlet property="emailTxt" destination="MhJ-sC-8vC" id="LnC-0k-0e8"/>
+                        <outlet property="passwordTxt" destination="hKw-22-frJ" id="wHh-wc-sNw"/>
+                        <outlet property="userImage" destination="9uF-fF-8nn" id="N8b-q3-VgS"/>
+                        <outlet property="userNameTxt" destination="zVT-Q5-ygh" id="Xcr-z1-D3V"/>
                         <segue destination="2DP-0W-ydq" kind="unwind" identifier="unwindToChannell" unwindAction="prepareForUnwindWithSegue:" id="BuR-R3-8kJ"/>
                     </connections>
                 </viewController>
