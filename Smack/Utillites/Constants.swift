@@ -12,7 +12,8 @@ typealias completionHandeler = (_ success:Bool) -> ()
 
 //URL
 let mainUrl =  "https://slackchatt.herokuapp.com/v1/"
-let urlRegister = "\(mainUrl)account/register"
+let registerUrl = "\(mainUrl)account/register"
+let loginUrl = "\(mainUrl)account/login"
 
 
 
@@ -26,3 +27,8 @@ struct Identifier {
 let loggedInKey = "loggedIn"
 let tokenKey = "token"
 let email = "userEmail"
+
+//Header
+let header = [
+    "Content-Type":"application/json; charset=utf-8"
+]
