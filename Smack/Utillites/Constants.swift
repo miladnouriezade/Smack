@@ -14,6 +14,7 @@ typealias completionHandeler = (_ success:Bool) -> ()
 let mainUrl =  "https://slackchatt.herokuapp.com/v1/"
 let registerUrl = "\(mainUrl)account/register"
 let loginUrl = "\(mainUrl)account/login"
+let addUserUrl = "\(mainUrl)user/add"
 
 
 

@@ -13,6 +13,7 @@
 		6445BDC921301FAA00FC1A5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6445BDC821301FAA00FC1A5B /* Assets.xcassets */; };
 		6445BDCC21301FAA00FC1A5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6445BDCA21301FAA00FC1A5B /* LaunchScreen.storyboard */; };
 		6445BDD7213022EA00FC1A5B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6445BDD5213022E900FC1A5B /* SWRevealViewController.m */; };
+		647BFAFE216615C500CBF993 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647BFAFD216615C500CBF993 /* UserDataService.swift */; };
 		64A44AC42146537D00292600 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A44AC32146537D00292600 /* Constants.swift */; };
 		64A44AC621465FEC00292600 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A44AC521465FEC00292600 /* LoginVC.swift */; };
 		64C60A4D214AE668003FD80E /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C60A4C214AE668003FD80E /* AuthService.swift */; };
@@ -34,6 +35,7 @@
 		6445BDD4213022E900FC1A5B /* Smack-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Smack-Bridging-Header.h"; sourceTree = "<group>"; };
 		6445BDD5213022E900FC1A5B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		6445BDD6213022E900FC1A5B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		647BFAFD216615C500CBF993 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		64A44AC32146537D00292600 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		64A44AC521465FEC00292600 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		64C60A4C214AE668003FD80E /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				64C60A4C214AE668003FD80E /* AuthService.swift */,
+				647BFAFD216615C500CBF993 /* UserDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -236,8 +239,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Smack/Pods-Smack-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
@@ -246,8 +247,6 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
@@ -264,15 +263,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Smack-checkManifestLockResult.txt",
 			);
@@ -294,6 +289,7 @@
 				64C60A4D214AE668003FD80E /* AuthService.swift in Sources */,
 				64A44AC621465FEC00292600 /* LoginVC.swift in Sources */,
 				64E37C112135D3D600E33EEC /* GradientView.swift in Sources */,
+				647BFAFE216615C500CBF993 /* UserDataService.swift in Sources */,
 				6445BDD7213022EA00FC1A5B /* SWRevealViewController.m in Sources */,
 				64FD7FE12131DC330091710C /* ChannelVC.swift in Sources */,
 				64A44AC42146537D00292600 /* Constants.swift in Sources */,
