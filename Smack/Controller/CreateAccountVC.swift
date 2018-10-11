@@ -25,6 +25,16 @@ class CreateAccountVC: UIViewController {
         createAccountBtn.layer.cornerRadius = 5
 
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDataService.instance.avatarName != "" {
+        let avatarName = UserDataService.instance.avatarName
+        userImage.image = UIImage(named:avatarName)
+            self.avatarName = avatarName
+            print(self.avatarName)
+        }
+    }
+    
     @IBAction func closeBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: Identifier.UNWIND, sender: nil)
     }
@@ -52,6 +62,7 @@ class CreateAccountVC: UIViewController {
     }
     
     @IBAction func chooseAvatar(_ sender: Any) {
+        performSegue(withIdentifier:Identifier.TO_AVATARPICKER, sender: nil)
     }
     
 }

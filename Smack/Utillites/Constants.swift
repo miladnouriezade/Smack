@@ -23,6 +23,7 @@ struct Identifier {
     static let TO_LOGIN = "toLogin"
     static let TO_CREATE_ACCOUNT = "toCreateAccount"
     static let UNWIND = "unwindToChannell"
+    static let TO_AVATARPICKER = "toAvatarPicker"
 }
 //User Defaults
 let loggedInKey = "loggedIn"
