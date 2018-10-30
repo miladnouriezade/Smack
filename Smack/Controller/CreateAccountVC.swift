@@ -37,7 +37,7 @@ class CreateAccountVC: UIViewController {
         userImage.image = UIImage(named:avatarName)
             setRandomColor(image: userImage)
             self.avatarName = avatarName
-            print(self.avatarName)
+            
         }
     }
     
@@ -46,6 +46,8 @@ class CreateAccountVC: UIViewController {
         let g = CGFloat(arc4random_uniform(255)) / 255
         let b = CGFloat(arc4random_uniform(255)) / 255
         bacgroundColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        avatarColor = "[\(r), \(g), \(b), 1]"
+        
         image.backgroundColor = bacgroundColor
     }
     
@@ -57,7 +59,7 @@ class CreateAccountVC: UIViewController {
         guard let name = userNameTxt.text, userNameTxt.text != "" else { return}
         guard let email = emailTxt.text, emailTxt.text != "" else { return}
         guard let password = passwordTxt.text, passwordTxt.text != "" else {return}
-        
+        createAccountBtn.setTitle("", for: .normal)
         spinner.isHidden = false
         spinner.startAnimating()
         
@@ -71,6 +73,8 @@ class CreateAccountVC: UIViewController {
                                 self.spinner.isHidden = true
                                 self.spinner.stopAnimating()
                                 self.performSegue(withIdentifier: Identifier.UNWIND, sender: nil)
+                                
+                                NotificationCenter.default.post(name:notifiUserDataChanged , object: self)
                             }
                         })
                     }

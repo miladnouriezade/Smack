@@ -119,6 +119,7 @@
                     </view>
                     <connections>
                         <outlet property="loginBtn" destination="gPc-3w-bgH" id="469-fA-WD0"/>
+                        <outlet property="userImage" destination="1kL-T9-cgE" id="Tcg-yi-FcY"/>
                         <segue destination="PZH-14-bcz" kind="show" identifier="toLogin" id="OCX-sd-peT"/>
                     </connections>
                 </viewController>
@@ -371,8 +372,8 @@
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Yjl-fA-ydW">
-                                <rect key="frame" x="169" y="205" width="37" height="37"/>
-                                <color key="color" red="0.3411764706" green="0.61043294270000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="169" y="437.5" width="37" height="37"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -389,7 +390,7 @@
                             <constraint firstItem="WMj-wi-vjK" firstAttribute="top" secondItem="fjZ-ZT-Kgk" secondAttribute="bottom" constant="55" id="fdp-Ji-Aaf"/>
                             <constraint firstItem="9uF-fF-8nn" firstAttribute="top" secondItem="tcP-2d-4OU" secondAttribute="top" constant="30" id="hhs-2x-uaE"/>
                             <constraint firstItem="jSJ-Y6-vmL" firstAttribute="centerX" secondItem="OBj-Id-zCg" secondAttribute="centerX" id="kTp-3k-n3N"/>
-                            <constraint firstItem="Yjl-fA-ydW" firstAttribute="top" secondItem="fjZ-ZT-Kgk" secondAttribute="bottom" constant="25" id="tQ6-pX-aW4"/>
+                            <constraint firstItem="Yjl-fA-ydW" firstAttribute="centerY" secondItem="jSJ-Y6-vmL" secondAttribute="centerY" id="mH5-vg-HsL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tcP-2d-4OU"/>
                     </view>
