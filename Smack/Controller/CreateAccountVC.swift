@@ -15,24 +15,38 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var userNameTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     //Variables
     var avatarName = "profileDefault"
     var avatarColor = "[0.5 ,0.5, 0.5, 1]"
+    var bacgroundColor:UIColor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupView()
         createAccountBtn.layer.cornerRadius = 5
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         if UserDataService.instance.avatarName != "" {
         let avatarName = UserDataService.instance.avatarName
         userImage.image = UIImage(named:avatarName)
+            setRandomColor(image: userImage)
             self.avatarName = avatarName
             print(self.avatarName)
         }
+    }
+    
+    func setRandomColor(image:UIImageView) {
+        let r = CGFloat(arc4random_uniform(255)) / 255
+        let g = CGFloat(arc4random_uniform(255)) / 255
+        let b = CGFloat(arc4random_uniform(255)) / 255
+        bacgroundColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        image.backgroundColor = bacgroundColor
     }
     
     @IBAction func closeBtnPressed(_ sender: Any) {
@@ -44,6 +58,9 @@ class CreateAccountVC: UIViewController {
         guard let email = emailTxt.text, emailTxt.text != "" else { return}
         guard let password = passwordTxt.text, passwordTxt.text != "" else {return}
         
+        spinner.isHidden = false
+        spinner.startAnimating()
+        
         AuthService.instance.registerUser(email: email, password: password) { (success) in
             if success {
                 AuthService.instance.loginUser(email: email, password: password, completion: { (success) in
@@ -51,7 +68,8 @@ class CreateAccountVC: UIViewController {
                         print("successfuly logged in",AuthService.instance.authToken,"***")
                         AuthService.instance.addUser(email: email, name:name, avatarColor: self.avatarColor, avatarName: self.avatarName, completion: { (success) in
                             if success {
-                                print(UserDataService.instance.email, UserDataService.instance.id)
+                                self.spinner.isHidden = true
+                                self.spinner.stopAnimating()
                                 self.performSegue(withIdentifier: Identifier.UNWIND, sender: nil)
                             }
                         })
@@ -60,6 +78,23 @@ class CreateAccountVC: UIViewController {
             }
         }
     }
+    
+    func setupView() {
+        spinner.isHidden = true
+        
+        userNameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedStringKey.foregroundColor:placeholderColor])
+        emailTxt.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedStringKey.foregroundColor:placeholderColor])
+        passwordTxt.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedStringKey.foregroundColor:placeholderColor])
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector (tapHandler))
+        view.addGestureRecognizer(tap)
+        
+    }
+    
+    @objc func tapHandler () {
+        view.endEditing(true)
+    }
+    
     
     @IBAction func chooseAvatar(_ sender: Any) {
         performSegue(withIdentifier:Identifier.TO_AVATARPICKER, sender: nil)

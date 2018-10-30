@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -53,7 +53,7 @@
                                 <rect key="frame" x="281" y="89" width="22" height="22"/>
                                 <state key="normal" image="addChannelButton"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="1kL-T9-cgE">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="1kL-T9-cgE" customClass="RoundedCorner" customModule="Smack" customModuleProvider="target">
                                 <rect key="frame" x="16" y="572" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="kag-dc-L32"/>
@@ -72,7 +72,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#general" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6D-9s-kL5">
-                                                    <rect key="frame" x="20" y="11.5" width="65.5" height="20"/>
+                                                    <rect key="frame" x="20" y="12" width="65.5" height="20"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -336,7 +336,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSJ-Y6-vmL">
-                                <rect key="frame" x="62" y="431" width="250" height="50"/>
+                                <rect key="frame" x="62.5" y="431" width="250" height="50"/>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="5uD-Qe-mny"/>
@@ -350,7 +350,7 @@
                                     <action selector="createAccount:" destination="anH-6M-LpD" eventType="touchUpInside" id="cRA-Ra-rWB"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="9uF-fF-8nn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="9uF-fF-8nn" customClass="RoundedCorner" customModule="Smack" customModuleProvider="target">
                                 <rect key="frame" x="137.5" y="50" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="DL1-BA-qEQ"/>
@@ -358,7 +358,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjZ-ZT-Kgk">
-                                <rect key="frame" x="137" y="50" width="100" height="130"/>
+                                <rect key="frame" x="137.5" y="50" width="100" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="ohE-Kz-APL"/>
                                 </constraints>
@@ -370,6 +370,10 @@
                                     <action selector="chooseAvatar:" destination="anH-6M-LpD" eventType="touchUpInside" id="K6B-f6-i01"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Yjl-fA-ydW">
+                                <rect key="frame" x="169" y="205" width="37" height="37"/>
+                                <color key="color" red="0.3411764706" green="0.61043294270000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -381,9 +385,11 @@
                             <constraint firstItem="RCV-dF-wdx" firstAttribute="top" secondItem="tcP-2d-4OU" secondAttribute="top" constant="8" id="LCp-Y9-2QY"/>
                             <constraint firstItem="tcP-2d-4OU" firstAttribute="trailing" secondItem="RCV-dF-wdx" secondAttribute="trailing" constant="16" id="MAi-1v-bGa"/>
                             <constraint firstItem="fjZ-ZT-Kgk" firstAttribute="width" secondItem="9uF-fF-8nn" secondAttribute="width" id="PHo-FX-Ad9"/>
+                            <constraint firstItem="Yjl-fA-ydW" firstAttribute="centerX" secondItem="OBj-Id-zCg" secondAttribute="centerX" id="ZKR-w5-fJ6"/>
                             <constraint firstItem="WMj-wi-vjK" firstAttribute="top" secondItem="fjZ-ZT-Kgk" secondAttribute="bottom" constant="55" id="fdp-Ji-Aaf"/>
                             <constraint firstItem="9uF-fF-8nn" firstAttribute="top" secondItem="tcP-2d-4OU" secondAttribute="top" constant="30" id="hhs-2x-uaE"/>
                             <constraint firstItem="jSJ-Y6-vmL" firstAttribute="centerX" secondItem="OBj-Id-zCg" secondAttribute="centerX" id="kTp-3k-n3N"/>
+                            <constraint firstItem="Yjl-fA-ydW" firstAttribute="top" secondItem="fjZ-ZT-Kgk" secondAttribute="bottom" constant="25" id="tQ6-pX-aW4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tcP-2d-4OU"/>
                     </view>
@@ -391,6 +397,7 @@
                         <outlet property="createAccountBtn" destination="jSJ-Y6-vmL" id="ygx-ut-ihY"/>
                         <outlet property="emailTxt" destination="MhJ-sC-8vC" id="LnC-0k-0e8"/>
                         <outlet property="passwordTxt" destination="hKw-22-frJ" id="wHh-wc-sNw"/>
+                        <outlet property="spinner" destination="Yjl-fA-ydW" id="fW9-qe-ybQ"/>
                         <outlet property="userImage" destination="9uF-fF-8nn" id="N8b-q3-VgS"/>
                         <outlet property="userNameTxt" destination="zVT-Q5-ygh" id="Xcr-z1-D3V"/>
                         <segue destination="2DP-0W-ydq" kind="unwind" identifier="unwindToChannell" unwindAction="prepareForUnwindWithSegue:" id="BuR-R3-8kJ"/>

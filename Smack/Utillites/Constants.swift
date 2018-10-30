@@ -16,6 +16,9 @@ let registerUrl = "\(mainUrl)account/register"
 let loginUrl = "\(mainUrl)account/login"
 let addUserUrl = "\(mainUrl)user/add"
 
+//Color
+let placeholderColor = #colorLiteral(red: 0.3266413212, green: 0.4215201139, blue: 0.7752227187, alpha: 0.5)
+
 
 
 //Segue Identifier
