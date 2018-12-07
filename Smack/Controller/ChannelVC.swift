@@ -35,10 +35,21 @@ class ChannelVC: UIViewController {
         }else {
             loginBtn.setTitle("Login", for: .normal)
             userImage.image = UIImage(named: "menuProfileIcon")
+            userImage.backgroundColor = UIColor.clear
         }
     }
     @IBAction func loginBtnPressed(_ sender: UIButton) {
-        performSegue(withIdentifier:Identifier.TO_LOGIN , sender: nil)
+        if AuthService.instance.isLoggedIn {
+            //show profile page
+            
+            let profile = ProfileVC()
+            profile.modalPresentationStyle = .custom
+            present(profile, animated: true, completion: nil)
+            
+        } else {
+            performSegue(withIdentifier:Identifier.TO_LOGIN , sender: nil)
+        }
+   
     
     }
     @IBAction func prepareForUnwind(segue:UIStoryboardSegue) { }
