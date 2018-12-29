@@ -215,6 +215,9 @@
                                         <state key="normal" title="Login">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginPressed:" destination="PZH-14-bcz" eventType="touchUpInside" id="EUM-DO-BZm"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzk-2O-Da3">
                                         <rect key="frame" x="0.0" y="50" width="250" height="30"/>
@@ -235,6 +238,10 @@
                                     <constraint firstItem="uzk-2O-Da3" firstAttribute="top" secondItem="WG1-rL-zEs" secondAttribute="bottom" id="1zT-Ve-b1c"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="rPq-rT-I5L">
+                                <rect key="frame" x="169" y="342.5" width="37" height="37"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -243,6 +250,8 @@
                             <constraint firstItem="Eec-Ox-AVV" firstAttribute="centerX" secondItem="teu-hR-UtL" secondAttribute="centerX" id="90P-WI-b2C"/>
                             <constraint firstItem="p7I-Nf-Hem" firstAttribute="top" secondItem="fop-wn-WPv" secondAttribute="bottom" constant="40" id="K4m-sG-lbz"/>
                             <constraint firstItem="fop-wn-WPv" firstAttribute="centerX" secondItem="teu-hR-UtL" secondAttribute="centerX" id="KOt-3B-fsG"/>
+                            <constraint firstItem="rPq-rT-I5L" firstAttribute="centerY" secondItem="WG1-rL-zEs" secondAttribute="centerY" id="Zfc-FQ-1Co"/>
+                            <constraint firstItem="rPq-rT-I5L" firstAttribute="centerX" secondItem="QS9-6x-vOx" secondAttribute="centerX" id="aNZ-K5-c19"/>
                             <constraint firstItem="fop-wn-WPv" firstAttribute="top" secondItem="Eec-Ox-AVV" secondAttribute="bottom" constant="70" id="gQl-Md-XRJ"/>
                             <constraint firstItem="Eec-Ox-AVV" firstAttribute="top" secondItem="QS9-6x-vOx" secondAttribute="top" constant="60" id="pu9-uI-PgQ"/>
                             <constraint firstItem="QS9-6x-vOx" firstAttribute="trailing" secondItem="W7Q-BS-zcF" secondAttribute="trailing" constant="16" id="zTy-8h-sYK"/>
@@ -251,6 +260,9 @@
                     </view>
                     <connections>
                         <outlet property="LoginBtn" destination="WG1-rL-zEs" id="W6N-Sv-J8h"/>
+                        <outlet property="email" destination="kC1-FJ-cGh" id="Q4g-9x-8ha"/>
+                        <outlet property="password" destination="Wvh-Mi-e2m" id="yPr-ai-4Yb"/>
+                        <outlet property="spinner" destination="rPq-rT-I5L" id="ciD-VR-r6c"/>
                         <segue destination="anH-6M-LpD" kind="show" identifier="toCreateAccount" id="NQ9-PN-bIs"/>
                     </connections>
                 </viewController>

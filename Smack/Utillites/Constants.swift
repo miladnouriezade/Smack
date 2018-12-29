@@ -15,6 +15,7 @@ let mainUrl =  "https://slackchatt.herokuapp.com/v1/"
 let registerUrl = "\(mainUrl)account/register"
 let loginUrl = "\(mainUrl)account/login"
 let addUserUrl = "\(mainUrl)user/add"
+let userByEmailUrl = "\(mainUrl)user/byEmail/"
 
 //Color
 let placeholderColor = #colorLiteral(red: 0.3266413212, green: 0.4215201139, blue: 0.7752227187, alpha: 0.5)
@@ -36,7 +37,11 @@ let loggedInKey = "loggedIn"
 let tokenKey = "token"
 let email = "userEmail"
 
-//Header
+//Headers
 let header = [
+    "Content-Type":"application/json; charset=utf-8"
+]
+let bearerHeader = [
+    "Authorization":"Bearer \(AuthService.instance.authToken)",
     "Content-Type":"application/json; charset=utf-8"
 ]
