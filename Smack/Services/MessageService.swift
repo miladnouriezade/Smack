@@ -16,6 +16,10 @@ class MessageService {
     
     var channels = [Channel]()
     
+    func logedout() {
+        MessageService.instance.channels = []
+    }
+    
     func findChannels(compelition : @escaping completionHandeler) {
         Alamofire.request(findChannelsUrl, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: bearerHeader).responseJSON { (response) in
             
@@ -34,7 +38,6 @@ class MessageService {
                             
                             self.channels.append(channel)
                         }
-                        print(self.channels[0].title)
                         
                         compelition(true)
                     }
