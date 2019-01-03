@@ -29,12 +29,19 @@ class ChannelVC: UIViewController {
         setupUserInfo()
     }
     
+    @IBAction func addChannelPressed(_ sender: Any) {
+        // showing addChannel modally
+        
+        let addChannelVC = AddChannelVC()
+        addChannelVC.modalPresentationStyle = .custom
+        present(addChannelVC,animated: true, completion: nil)
+    }
     @objc func userDataDidChange(_ notif:Notification) {
         setupUserInfo()
     }
     @IBAction func loginBtnPressed(_ sender: UIButton) {
         if AuthService.instance.isLoggedIn {
-            //show profile page
+            //showing profile page modally
             
             let profile = ProfileVC()
             profile.modalPresentationStyle = .custom
