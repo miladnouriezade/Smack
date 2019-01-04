@@ -24,6 +24,11 @@ class ChannelVC: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(userDataDidChange(_:)), name: notifiUserDataChanged, object: nil)
         
+        SocketService.instance.getChannel { (success) in
+            if success {
+                self.tableView.reloadData()
+            }
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         setupUserInfo()
@@ -31,10 +36,15 @@ class ChannelVC: UIViewController {
     
     @IBAction func addChannelPressed(_ sender: Any) {
         // showing addChannel modally
-        
-        let addChannelVC = AddChannelVC()
-        addChannelVC.modalPresentationStyle = .custom
-        present(addChannelVC,animated: true, completion: nil)
+        if AuthService.instance.isLoggedIn {
+            
+            let addChannelVC = AddChannelVC()
+            addChannelVC.modalPresentationStyle = .custom
+            present(addChannelVC,animated: true, completion: nil)
+            
+        }else {
+            showAlert()
+        }
     }
     @objc func userDataDidChange(_ notif:Notification) {
         setupUserInfo()
@@ -67,6 +77,15 @@ class ChannelVC: UIViewController {
             userImage.image = UIImage(named: "menuProfileIcon")
             userImage.backgroundColor = UIColor.clear
         }
+    }
+    
+    func showAlert() {
+        
+        let alertController = UIAlertController(title: "Whoops!!!", message: "you are not loged in", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        
+        alertController.addAction(ok)
+        self.present(alertController, animated: true, completion: nil)
     }
     @IBAction func prepareForUnwind(segue:UIStoryboardSegue) { }
     

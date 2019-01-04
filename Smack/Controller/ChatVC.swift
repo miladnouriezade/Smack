@@ -23,14 +23,13 @@ class ChatVC: UIViewController {
         // check if user already loged in
         if AuthService.instance.isLoggedIn {
             AuthService.instance.findUserByEmail { (success) in
-                NotificationCenter.default.post(name: notifiUserDataChanged, object: nil)
+                if success {
+                    MessageService.instance.findChannels(compelition: { (success) in
+                        NotificationCenter.default.post(name: notifiUserDataChanged, object: nil)
+                    })
+                }
             }
         }
-        
-//        MessageService.instance.findChannels { (success) in
-//            
-//        }
-
     }
 
 

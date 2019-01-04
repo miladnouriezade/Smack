@@ -30,6 +30,7 @@ class AuthService {
     var userEmail:String {
         get {
             return Defaults.value(forKey: email) as! String
+            
         }
         set {
             Defaults.setValue(newValue, forKey: email)
@@ -123,7 +124,7 @@ class AuthService {
     
     func findUserByEmail(completion:@escaping completionHandeler) {
         
-        Alamofire.request("\(userByEmailUrl)\(userEmail)", method: .get, parameters: nil, encoding:JSONEncoding.default, headers: bearerHeader).responseJSON { (response) in
+        Alamofire.request("\(userByEmailUrl)\(userEmail)", method: .get, parameters: nil, encoding:JSONEncoding.default, headers: bearerHeader).responseJSON{ (response) in
             if response.result.error == nil {
                 guard let data = response.data else{return}
                 self.setUserInfo(data: data)
