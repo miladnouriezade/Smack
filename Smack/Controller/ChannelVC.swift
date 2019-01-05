@@ -22,7 +22,9 @@ class ChannelVC: UIViewController {
 
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
         
-        NotificationCenter.default.addObserver(self, selector: #selector(userDataDidChange(_:)), name: notifiUserDataChanged, object: nil)
+        //Notifications Observers
+        NotificationCenter.default.addObserver(self, selector: #selector(userDataDidChange(_:)), name: notifUserDataChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(channelsLoaded(_:)), name: notifChannelsLoaded, object: nil)
         
         SocketService.instance.getChannel { (success) in
             if success {
@@ -49,6 +51,9 @@ class ChannelVC: UIViewController {
     @objc func userDataDidChange(_ notif:Notification) {
         setupUserInfo()
     }
+    @objc func channelsLoaded(_ notif : Notification) {
+        tableView.reloadData()
+    }
     @IBAction func loginBtnPressed(_ sender: UIButton) {
         if AuthService.instance.isLoggedIn {
             //showing profile page modally
@@ -63,7 +68,6 @@ class ChannelVC: UIViewController {
     }
     
     func setupUserInfo() {
-        tableView.reloadData()
         
         let user = UserDataService.instance
         
@@ -76,6 +80,8 @@ class ChannelVC: UIViewController {
             loginBtn.setTitle("Login", for: .normal)
             userImage.image = UIImage(named: "menuProfileIcon")
             userImage.backgroundColor = UIColor.clear
+            
+            tableView.reloadData()
         }
     }
     
@@ -94,6 +100,12 @@ class ChannelVC: UIViewController {
 }
 extension ChannelVC : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let channel = MessageService.instance.channels[indexPath.row]
+        MessageService.instance.selectedChannel = channel
+        
+        NotificationCenter.default.post(name: notifChannelSelected, object: nil)
+        self.revealViewController().revealToggle(animated: true)
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

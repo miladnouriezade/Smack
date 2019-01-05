@@ -26,6 +26,7 @@
 		64A44AC42146537D00292600 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A44AC32146537D00292600 /* Constants.swift */; };
 		64A44AC621465FEC00292600 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A44AC521465FEC00292600 /* LoginVC.swift */; };
 		64C60A4D214AE668003FD80E /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C60A4C214AE668003FD80E /* AuthService.swift */; };
+		64C9434921DFF532005517C7 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C9434821DFF532005517C7 /* Message.swift */; };
 		64E37C112135D3D600E33EEC /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E37C102135D3D600E33EEC /* GradientView.swift */; };
 		64E4751021DDD2FB00740759 /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E4750F21DDD2FB00740759 /* SocketService.swift */; };
 		64F799E321BA7C3400A6E5F7 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F799E121BA7C3400A6E5F7 /* ProfileVC.swift */; };
@@ -60,6 +61,7 @@
 		64A44AC32146537D00292600 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		64A44AC521465FEC00292600 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		64C60A4C214AE668003FD80E /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		64C9434821DFF532005517C7 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		64E37C102135D3D600E33EEC /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		64E4750F21DDD2FB00740759 /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
 		64F799E121BA7C3400A6E5F7 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				644DB32B21D8101000F8B215 /* Channel.swift */,
+				64C9434821DFF532005517C7 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				644DB32C21D8101000F8B215 /* Channel.swift in Sources */,
 				6445BDC221301FA900FC1A5B /* AppDelegate.swift in Sources */,
 				64F799E321BA7C3400A6E5F7 /* ProfileVC.swift in Sources */,
+				64C9434921DFF532005517C7 /* Message.swift in Sources */,
 				64A1B44E216F49220096CA86 /* AvatarPickerVC.swift in Sources */,
 				641F58BD21479CD600813B09 /* CreateAccountVC.swift in Sources */,
 				6495A324217BBD8700ADFD2B /* RoundedCorner.swift in Sources */,

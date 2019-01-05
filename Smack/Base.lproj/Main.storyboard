@@ -568,6 +568,7 @@
                         <viewLayoutGuide key="safeArea" id="5hs-30-egT"/>
                     </view>
                     <connections>
+                        <outlet property="currentlyChannel" destination="EWC-T6-Yph" id="ar5-4a-ZKU"/>
                         <outlet property="menuButton" destination="1hg-Fb-W2J" id="26Z-2L-TPh"/>
                     </connections>
                 </viewController>

@@ -17,12 +17,15 @@ let loginUrl = "\(mainUrl)account/login"
 let addUserUrl = "\(mainUrl)user/add"
 let userByEmailUrl = "\(mainUrl)user/byEmail/"
 let findChannelsUrl = "\(mainUrl)channel"
+let getMessagesUrl = "\(mainUrl)message/byChannel/"
 
 //Color
 let placeholderColor = #colorLiteral(red: 0.3266413212, green: 0.4215201139, blue: 0.7752227187, alpha: 0.5)
 
 //Notification Constant
-let notifiUserDataChanged = Notification.Name(rawValue: "notifiUserDataChanged")
+let notifUserDataChanged = Notification.Name(rawValue: "notifiUserDataChanged")
+let notifChannelSelected = Notification.Name(rawValue: "notifChannelSelected")
+let notifChannelsLoaded = Notification.Name(rawValue: "notifChannelsLoaded")
 
 
 

@@ -74,7 +74,7 @@ class CreateAccountVC: UIViewController {
                                 self.spinner.stopAnimating()
                                 self.performSegue(withIdentifier: Identifier.UNWIND, sender: nil)
                                 
-                                NotificationCenter.default.post(name:notifiUserDataChanged , object: self)
+                                NotificationCenter.default.post(name:notifUserDataChanged , object: self)
                             }
                         })
                     }
