@@ -29,6 +29,7 @@
 		64C9434921DFF532005517C7 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C9434821DFF532005517C7 /* Message.swift */; };
 		64E37C112135D3D600E33EEC /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E37C102135D3D600E33EEC /* GradientView.swift */; };
 		64E4751021DDD2FB00740759 /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E4750F21DDD2FB00740759 /* SocketService.swift */; };
+		64E9D7A221E0AF4E0096D11F /* KeyboardBoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9D7A121E0AF4E0096D11F /* KeyboardBoundView.swift */; };
 		64F799E321BA7C3400A6E5F7 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F799E121BA7C3400A6E5F7 /* ProfileVC.swift */; };
 		64F799E421BA7C3400A6E5F7 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64F799E221BA7C3400A6E5F7 /* ProfileVC.xib */; };
 		64FD7FDF2131DBF90091710C /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FD7FDE2131DBF90091710C /* ChatVC.swift */; };
@@ -64,6 +65,7 @@
 		64C9434821DFF532005517C7 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		64E37C102135D3D600E33EEC /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		64E4750F21DDD2FB00740759 /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
+		64E9D7A121E0AF4E0096D11F /* KeyboardBoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardBoundView.swift; sourceTree = "<group>"; };
 		64F799E121BA7C3400A6E5F7 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		64F799E221BA7C3400A6E5F7 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
 		64FD7FDE2131DBF90091710C /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 		64FD7FDC2131DBB80091710C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				64E9D7A121E0AF4E0096D11F /* KeyboardBoundView.swift */,
 				64E37C102135D3D600E33EEC /* GradientView.swift */,
 				64A1B44F216F4E300096CA86 /* AvatarCell.swift */,
 				6495A323217BBD8700ADFD2B /* RoundedCorner.swift */,
@@ -332,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64E9D7A221E0AF4E0096D11F /* KeyboardBoundView.swift in Sources */,
 				64E4751021DDD2FB00740759 /* SocketService.swift in Sources */,
 				64688BFA21DC1457007AC568 /* RoundedButton.swift in Sources */,
 				64FD7FDF2131DBF90091710C /* ChatVC.swift in Sources */,
