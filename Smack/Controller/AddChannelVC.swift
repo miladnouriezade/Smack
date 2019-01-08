@@ -24,6 +24,8 @@ class AddChannelVC: UIViewController {
     }
     
     func setupView() {
+        let view = self.view.viewWithTag(10)
+        view?.layer.cornerRadius = 10.0
         
         let closeTouch = UITapGestureRecognizer(target: self, action: #selector (closeTap(_:)))
         bgView.addGestureRecognizer(closeTouch)

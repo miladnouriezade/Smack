@@ -32,6 +32,9 @@ class ProfileVC: UIViewController {
     }
     
     func setupView() {
+        let view = self.view.viewWithTag(10)
+        view?.layer.cornerRadius = 10.0
+        
         let instance = UserDataService.instance
         
         userImage.image = UIImage(named: instance.avatarName)

@@ -43,7 +43,6 @@ class ChannelVC: UIViewController {
             let addChannelVC = AddChannelVC()
             addChannelVC.modalPresentationStyle = .custom
             present(addChannelVC,animated: true, completion: nil)
-            
         }else {
             showAlert()
         }

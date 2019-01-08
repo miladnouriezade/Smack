@@ -45,13 +45,23 @@ class ChatVC: UIViewController {
                 NotificationCenter.default.post(name: notifUserDataChanged, object: nil)
                 }
             }
+        SocketService.instance.getChatMessages { (success) in
+            if success {
+                self.tableView.reloadData()
+                if MessageService.instance.messages.count > 0 {
+                    let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
+                    self.tableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
+                }
+            }
         }
+    }
     
     @objc func userDataDidChange(_ notif: Notification) {
         if AuthService.instance.isLoggedIn {
             onLoginGetMessages()
         } else {
             currentlyChannel.text = "Please Log In"
+            self.tableView.reloadData()
         }
     }
     
