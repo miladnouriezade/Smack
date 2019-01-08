@@ -53,16 +53,17 @@ class ChatVC: UIViewController {
                 NotificationCenter.default.post(name: notifUserDataChanged, object: nil)
                 }
             }
-        SocketService.instance.getChatMessages { (success) in
-            if success {
+        SocketService.instance.getChatMessages { (newMessage) in
+            if newMessage.channelId == MessageService.instance.selectedChannel?.id && AuthService.instance.isLoggedIn == true {
+                MessageService.instance.messages.append(newMessage)
                 self.tableView.reloadData()
+                
                 if MessageService.instance.messages.count > 0 {
                     let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
                     self.tableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
                 }
             }
-        }
-        
+        }        
         SocketService.instance.getTypingUsers { (typingUsers) in
             guard let channelId = MessageService.instance.selectedChannel?.id else { return }
             var names = ""
@@ -144,8 +145,7 @@ class ChatVC: UIViewController {
             SocketService.instance.addMessage(messageBody: message, userId:UserDataService.instance.id, channelId: channelId) { (success) in
                 if success {
                     self.messageTxtBox.text = ""
-//                    SocketService.instance.stopTypingEvent(username:UserDataService.instance.name,channelId: )
-//                    self.messageTxtBox.resignFirstResponder()
+                    SocketService.instance.stopTypingEvent(username:UserDataService.instance.name,channelId:channelId )
                 }
                 
             }

@@ -16,6 +16,7 @@ class MessageService {
     
     var channels = [Channel]()
     var messages = [Message]()
+    var unreadChannels = [String]()
     var selectedChannel : Channel?
     
     func clearChannels() {
@@ -81,7 +82,6 @@ class MessageService {
                             
                             self.messages.append(message)
                         }
-//                        print("\(self.messages[0])@@@@")
                         completion(true)
                         
                     }
