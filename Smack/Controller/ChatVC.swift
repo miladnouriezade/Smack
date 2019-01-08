@@ -15,10 +15,18 @@ class ChatVC: UIViewController {
     @IBOutlet weak var currentlyChannel: UILabel!
     @IBOutlet weak var messageTxtBox: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var typingUsersLabel: UILabel!
+    
+    //Variables
+    var isTyping = false
+//    lazy var username = UserDataService.instance.name
+//    lazy var selectedChannelId = MessageService.instance.selectedChannel?.id
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.bindToKeyboard()
+        sendButton.isHidden = true
         
         //TableView
         tableView.delegate = self
@@ -54,7 +62,33 @@ class ChatVC: UIViewController {
                 }
             }
         }
-    }
+        
+        SocketService.instance.getTypingUsers { (typingUsers) in
+            guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+            var names = ""
+            var numberOfTypers = 0
+            
+            for (typingUser , channel) in typingUsers {
+                if typingUser != UserDataService.instance.name && channelId == channel {
+                    if names == "" {
+                        names = typingUser
+                    } else {
+                        names = "\(names),\(typingUser)"
+                    }
+                    numberOfTypers += 1
+                }
+            }
+                if numberOfTypers > 0 && AuthService.instance.isLoggedIn == true {
+                    var verb = "is"
+                    if numberOfTypers > 1 {
+                        verb = "are"
+                    }
+                    self.typingUsersLabel.text = "\(names),\(verb) typing..."
+                } else {
+                    self.typingUsersLabel.text = ""
+                }
+            }
+        }
     
     @objc func userDataDidChange(_ notif: Notification) {
         if AuthService.instance.isLoggedIn {
@@ -110,11 +144,29 @@ class ChatVC: UIViewController {
             SocketService.instance.addMessage(messageBody: message, userId:UserDataService.instance.id, channelId: channelId) { (success) in
                 if success {
                     self.messageTxtBox.text = ""
+//                    SocketService.instance.stopTypingEvent(username:UserDataService.instance.name,channelId: )
 //                    self.messageTxtBox.resignFirstResponder()
                 }
                 
             }
         }
+    }
+    
+    @IBAction func messageBoxEditting(_ sender: Any) {
+        guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+        
+        if messageTxtBox.text == "" {
+            isTyping = false
+            sendButton.isHidden = true
+            
+            SocketService.instance.stopTypingEvent(username:UserDataService.instance.name, channelId: channelId)
+        } else {
+            SocketService.instance.startTypingEvent(username: UserDataService.instance.name, channelId:channelId)
+            
+            isTyping = true
+            sendButton.isHidden = false
+        }
+        
     }
     
 }
