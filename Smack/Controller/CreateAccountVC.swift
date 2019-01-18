@@ -63,11 +63,13 @@ class CreateAccountVC: UIViewController {
         spinner.isHidden = false
         spinner.startAnimating()
         
-        AuthService.instance.registerUser(email: email, password: password) { (success) in
-            if success {
-                AuthService.instance.loginUser(email: email, password: password, completion: { (success) in
-                    if success {
-                        print("successfuly logged in",AuthService.instance.authToken,"***")
+        AuthService.instance.registerUser(email: email, password: password) { (statusCode) in
+            switch statusCode {
+
+            case 200:
+                AuthService.instance.loginUser(email: email, password: password, completion: { (statusCode) in
+                    switch statusCode {
+                    case 200:
                         AuthService.instance.addUser(email: email, name:name, avatarColor: self.avatarColor, avatarName: self.avatarName, completion: { (success) in
                             if success {
                                 self.spinner.isHidden = true
@@ -77,8 +79,28 @@ class CreateAccountVC: UIViewController {
                                 NotificationCenter.default.post(name:notifUserDataChanged , object: self)
                             }
                         })
+                    default:
+                        self.showAlert(statusCode: 409)
+                        
                     }
+//                    if success {
+//                        AuthService.instance.addUser(email: email, name:name, avatarColor: self.avatarColor, avatarName: self.avatarName, completion: { (success) in
+//                            if success {
+//                                self.spinner.isHidden = true
+//                                self.spinner.stopAnimating()
+//                                self.performSegue(withIdentifier: Identifier.UNWIND, sender: nil)
+//
+//                                NotificationCenter.default.post(name:notifUserDataChanged , object: self)
+//                            }
+//                        })
+//                    }
                 })
+            case 300:
+                self.showAlert(statusCode: 300)
+            case 409:
+                self.showAlert(statusCode: 409)
+            default:
+                self.showAlert(statusCode: 500)
             }
         }
     }
@@ -94,6 +116,28 @@ class CreateAccountVC: UIViewController {
         view.addGestureRecognizer(tap)
         
     }
+    
+    func showAlert(statusCode : Int) {
+        var message = ""
+        
+        switch statusCode {
+        case 300:
+            message = "User already registered"
+        default:
+            message = "An error occured"
+        }
+        
+        let alertController = UIAlertController(title: "Whoops!!!", message:message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        
+        alertController.addAction(ok)
+        self.present(alertController, animated: true, completion: nil)
+        
+        self.spinner.stopAnimating()
+        self.spinner.isHidden = true
+        self.createAccountBtn.setTitle("Create my Account", for: .normal)
+    }
+
     
     @objc func tapHandler () {
         view.endEditing(true)

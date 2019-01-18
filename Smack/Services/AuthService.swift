@@ -46,7 +46,7 @@ class AuthService {
         }
     }
     
-    func registerUser(email:String, password:String, completion:@escaping completionHandeler) {
+    func registerUser(email:String, password:String, completion:@escaping(_ statusCode : Int)->Void) {
         let lowerCasedEmail = email.lowercased()
         
         let header = [
@@ -58,16 +58,26 @@ class AuthService {
         ]
         
         Alamofire.request(registerUrl, method:.post, parameters:body, encoding:JSONEncoding.default, headers: header).responseString { (response) in
-            if response.result.error == nil {
-                completion(true)
-            }else {
-                completion(false)
-                debugPrint(response.result.error as Any)
+            
+            guard let statusCode = response.response?.statusCode else { return }
+            
+            switch statusCode {
+            case 300:
+                print("User already exists")
+                completion(300)
+            case 409:
+                print("An error occured")
+                completion(409)
+            case 200:
+                print("Successfully created new account")
+                completion(200)
+            default:
+                completion(500)
             }
         }
     }
     
-    func loginUser(email:String, password:String,completion:@escaping completionHandeler) {
+    func loginUser(email:String, password:String,completion:@escaping (_ statusCode : Int)->Void ) {
         let lowerCasedEmail = email.lowercased()
         
         let body:[String:Any] = [
@@ -75,24 +85,40 @@ class AuthService {
             "password":password
         ]
         Alamofire.request(loginUrl, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
-            if response.result.error == nil {
+            
+            guard let statusCode = response.response?.statusCode else { return }
+            
+            switch statusCode {
+            case 200:
                 
-                //Using SwiftyJson
                 guard let data = response.data else {return}
                 
                 do{
                     let json = try JSON(data: data)
                     self.userEmail = json["user"].stringValue
                     self.authToken = json["token"].stringValue
-                    completion(true)
+            
                     self.isLoggedIn = true
+                    completion(200)
                 }
                 catch {
                     print(error)
                 }
-            }else {
-                completion(false)
+                
+            case 401:
+                completion(401)
                 self.isLoggedIn = false
+                print("An error occured")
+                
+            case 409:
+                completion(409)
+                self.isLoggedIn = false
+                print("Email or password invalid, please check your credentials")
+                
+            default:
+                completion(500)
+                self.isLoggedIn = false
+                
             }
         }
     }
@@ -135,9 +161,7 @@ class AuthService {
                 completion(false)
                 debugPrint(response.result.error as Any)
             }
-            
         }
-        
     }
     func setUserInfo(data : Data) {
         do {
@@ -153,20 +177,4 @@ class AuthService {
             print(error)
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

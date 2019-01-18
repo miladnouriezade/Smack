@@ -30,20 +30,24 @@ class LoginVC: UIViewController {
         guard let emailValue = email.text, email.text != ""  else { return}
         guard let passwordValue = password.text, password.text != ""  else { return}
         
-        AuthService.instance.loginUser(email: emailValue, password: passwordValue) { (success) in
-            if success {
+        AuthService.instance.loginUser(email: emailValue, password: passwordValue) { (statusCode) in
+            switch statusCode {
+            case 200:
                 AuthService.instance.findUserByEmail(completion: { (success) in
                     if success {
-                            NotificationCenter.default.post(name: notifUserDataChanged, object: nil)
+                        NotificationCenter.default.post(name: notifUserDataChanged, object: nil)
                         self.spinner.isHidden = true
                         self.spinner.stopAnimating()
                         self.dismiss(animated: true, completion: nil)
                     }
                 })
                 
+            case 401:
+                self.showAlert(statusCode: 401)
+            default:
+                self.showAlert(statusCode: 409)
             }
         }
-        
     }
     
     @IBAction func CloseBtnPressed(_ sender: Any) {
@@ -59,6 +63,29 @@ class LoginVC: UIViewController {
         
         email.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedStringKey.foregroundColor:placeholderColor])
         password.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedStringKey.foregroundColor:placeholderColor])
+    }
+    
+    func showAlert(statusCode : Int) {
+        var message = ""
+        
+        switch statusCode {
+        case 300:
+            message = "User already registered"
+        case 401:
+            message = "Email or password invalid, please check your credentials"
+        default:
+            message = "An error occured"
+        }
+        
+        let alertController = UIAlertController(title: "Whoops!!!", message:message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        
+        alertController.addAction(ok)
+        self.present(alertController, animated: true, completion: nil)
+        
+        self.spinner.stopAnimating()
+        self.spinner.isHidden = true
+        self.LoginBtn.setTitle("login", for: .normal)
     }
     
 }
